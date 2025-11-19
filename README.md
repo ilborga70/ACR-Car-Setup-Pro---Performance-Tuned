@@ -32,7 +32,7 @@ This application is released as a standalone **portable executable**. No install
 
 1.  **Download:** Go to the **[Releases](../../releases)** page and download the latest `.zip` archive.
 2.  **Extract:** Right-click the downloaded file and select **"Extract All"**. *Do not run the file directly from inside the zip.*
-3.  **Run:** Open the extracted folder and double-click **`ACR Performance Tuning.exe`**.
+3.  **Run:** Open the extracted folder and double-click **`ACR Car Setup Pro - Performance Tuned.exe`**.
 
 > **⚠️ Note on Windows Defender/SmartScreen:**
 > Because this tool is a custom application created by an independent developer (unsigned), Windows might flag it as unrecognized. This is a common "false positive" for community tools. You can safely click **"More Info" -> "Run Anyway"**.
