@@ -2,7 +2,7 @@
 
 **Your Virtual Race Engineer for Assetto Corsa Rally.**
 
-# ![ACR Car Setup Pro - Performance Tuned](https://github.com/user-attachments/assets/c256fbf7-dea8-4722-9b3a-798ba8188420)
+# ![ACR Car Setup Pro - Performance Tuned](https://github.com/user-attachments/assets/395cfd4a-7877-4479-b24d-aaada3dea848)
 
 ## 🏁 Overview
 
