@@ -1,4 +1,20 @@
-# ACR Car Setup Pro - Performance Tuned
+## Changelog: ACR Car Setup Pro - Performance Tuned (Physics Overhaul)
+
+### 🏎️ Core Physics Engine
+- **ACR Data Implementation:** Logic rewritten based on real telemetry extracted from the *Lancia Delta Integrale* setup file.
+- **Asymmetric Suspension:** Implemented "Stiff Front / Soft Rear" spring rate logic (e.g., `70kN` front / `50kN` rear) to match specific ACR chassis behavior.
+- **Damping Ratios:** Updated Damper logic to reflect the specific ACR standard where *Slow Rebound* is approx. **60% higher** than *Slow Bump*.
+
+### ⚙️ Drivetrain & Braking
+- **Differential Ramps:** Replaced generic angles with ACR-specific ramp logic (e.g., `60°` Accel / `75°` Coast) to optimize corner entry.
+- **Braking Bias:** Shifted baseline bias forward to `~65%` to match the simulator's braking physics.
+
+### 🔄 System & Scalability
+- **Dynamic Weather Scaling:** Replaced static values with mathematical modifiers (e.g., `-50%` ARB stiffness for *Heavy Rain*), ensuring correct wet/snow setups for **all** car classes.
+- **Universal Compatibility:** Scaled the *Group A* physics logic to correctly calculate setups for *WRC*, *R5*, and *Historic* classes.
+
+### 🐛 Bug Fixes
+- **Syntax Errors:** Removed invalid `` artifacts that were preventing the script from executing.
 
 **Your Virtual Race Engineer for Assetto Corsa Rally.**
 
@@ -32,7 +48,7 @@ This application is released as a standalone **portable executable**. No install
 
 1.  **Download:** Go to the **[Releases](../../releases)** page and download the latest `.zip` archive.
 2.  **Extract:** Right-click the downloaded file and select **"Extract All"**. *Do not run the file directly from inside the zip.*
-3.  **Run:** Open the extracted folder and double-click **`ACR Car Setup Pro - Performance Tuned.exe`**.
+3.  **Run:** Open the extracted folder and double-click **`ACR Performance Tuning.exe`**.
 
 > **⚠️ Note on Windows Defender/SmartScreen:**
 > Because this tool is a custom application created by an independent developer (unsigned), Windows might flag it as unrecognized. This is a common "false positive" for community tools. You can safely click **"More Info" -> "Run Anyway"**.
