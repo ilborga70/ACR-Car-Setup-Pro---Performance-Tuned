@@ -2,6 +2,45 @@
 
 # ![ACR Car Setup Pro - Engineering Edition](https://github.com/user-attachments/assets/3eaa6ed7-30d5-459e-8205-25d03bb20eaa)
 
+# Fix: Resolved missing Damper/Suspension values on Gravel & Snow surfaces
+
+## 🐛 The Bug
+When selecting **Gravel** or **Snow** as the surface type, the **Dampers (Slow/Fast Bump & Rebound)** section was disappearing from the output results.
+
+### Root Cause
+The script performed mathematical calculations on the base setup values (Integers) using decimal multipliers (e.g., `* 0.6`).
+* **PowerShell behavior:** Multiplying an `Int` by a decimal automatically converts the result to a `Double` (floating-point number).
+* **The error:** The output rendering logic contained a strict type check: `if ($val -is [int])`. Because the calculated values were now `Double`, this check failed, and the script skipped printing the data.
+
+## 🛠️ The Fix
+I have refactored the `Calculate-All-Setup` function to handle data types more robustly.
+
+### Key Changes:
+1.  **Implemented `IsNumeric` Helper Function**
+    Added a helper to validate numbers regardless of whether they are `Int`, `Double`, or `Decimal`.
+    ```powershell
+    function IsNumeric ($val) {
+        return ($val -is [int] -or $val -is [double] -or $val -is [decimal])
+    }
+    ```
+
+2.  **Explicit Integer Casting**
+    Applied `[int][math]::Round(...)` to all suspension calculations. This ensures that calculated spring rates and damper settings remain clean Integers, which is preferred for configuration files.
+    ```powershell
+    # Before
+    $currentSetup.SpringRateF = $currentSetup.SpringRateF * 0.65
+
+    # After
+    $currentSetup.SpringRateF = [int][math]::Round($currentSetup.SpringRateF * 0.65)
+    ```
+
+3.  **Removed Strict Output Restrictions**
+    Updated the UI rendering logic to display damper values as long as they exist, removing the buggy `if -is [int]` constraint.
+
+## ✅ Verification
+* **Test:** Select "Gravel" or "Snow" surface with any Car Class.
+* **Result:** The "Dampers" section now correctly appears in the "Engineering Setup Results" panel with adjusted values.
+
 ### 🏎️ Core Physics Engine
 - **ACR Data Implementation:** Logic rewritten based on real telemetry extracted from the *Lancia Delta Integrale* setup file.
 - **Asymmetric Suspension:** Implemented "Stiff Front / Soft Rear" spring rate logic (e.g., `70kN` front / `50kN` rear) to match specific ACR chassis behavior.
