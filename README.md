@@ -2,7 +2,7 @@
 
 # ![ACR Car Setup Pro - Engineering Edition](https://github.com/user-attachments/assets/3eaa6ed7-30d5-459e-8205-25d03bb20eaa)
 
-# Fix: Resolved missing Damper/Suspension values on Gravel & Snow surfaces
+## Fix: Resolved missing Damper/Suspension values on Gravel & Snow surfaces
 
 ## 🐛 The Bug
 When selecting **Gravel** or **Snow** as the surface type, the **Dampers (Slow/Fast Bump & Rebound)** section was disappearing from the output results.
@@ -155,5 +155,6 @@ The Engineering Edition implements authentic rally engineering concepts:
 **Engineering References:** Toyota Gazoo Racing, Hyundai Motorsport, M-Sport, Citroën Racing
 
 ---
+
 
 *This tool is unofficial and is not affiliated with Kunos Simulazioni. Professional engineering principles applied for authentic rally simulation experience.*
